@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%  static 'css/subject.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% for i in subject %}
+    <div class="base">
+        <button><h3>
+            <a href="{% url 'lecture' %}">{{subject.name}}</a> </h3></button>
+            <button>
+      </div>
+      {% endfor %}
+</body>
+</html>
