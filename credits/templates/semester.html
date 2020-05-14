@@ -1,25 +1,26 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-    rel="stylesheet"
-  />
-    <link rel="stylesheet" href="{%  static 'css/semester.css' %}">
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{%  static 'css/semester.css' %}" />
     <title>Document</title>
-</head>
-<body>
-
-  {% for i in semester %}
+  </head>
+  <body>
+    {% for semester in semesters %}
     <div class="base">
-        <button><h3>
-         <a href="{% url 'sub' branch.id %}">{{semester.name}}</a> </h3></button>
-      
-      </div>
-  
-      {% endfor %}
-</body>
+      <button>
+        <h3>
+          <a href="{% url 'sem:sub' semester.id%}">{{semester.name}}</a>
+        </h3>
+      </button>
+    </div>
+
+    {% endfor %}
+  </body>
 </html>

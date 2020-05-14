@@ -6,20 +6,21 @@ from sem.models import *
 
 def home(request):
     """help"""
-    branch = Branch.objects.all()
+    branches = Branch.objects.all()
     
-    context = {"branch":branch}
+    context = {"branches":branches}
     return render(request, 'index.html', context)
 
 
 def sem(request,pk):
-    semester = Semester.objects.get(id=pk)
-    return render(request, 'semester.html',{"semester":semester})
+    branch = Branch.objects.get(id=pk)
+    semesters = branch.semesters.all()
+    return render(request, 'semester.html',{"semesters":semesters})
 
 
-def sub(request):
-    subject = Subject.objects.all()
-    return render(request,'subject.html',{"subject":subject})
+def sub(request,pk):
+    subjects = Semester.objects.get(id=pk).subjects.all()
+    return render(request,'subject.html',{"subjects":subjects})
 
 def lecture(request):
     course = Course.objects.all()

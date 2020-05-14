@@ -5,21 +5,23 @@ from django.db import models
 
 class Branch(models.Model):
     name = models.CharField(max_length=200, null=True,unique=True,blank=True)
+    branch_icon = models.ImageField(upload_to="images/icons/", blank=True)
 
     def __str__(self):
         return self.name
+    
 
 
 class Semester(models.Model):
     name = models.CharField(max_length=200, null=True,unique=True)
-    branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE, related_name="semesters")
 
     def __str__(self):
         return self.name
 
 class Subject(models.Model):
     name = models.CharField(max_length=200, null=True,unique=True)
-    semester = models.ForeignKey(Semester, on_delete=models.CASCADE)
+    semester = models.ForeignKey(Semester, on_delete=models.CASCADE, related_name="subjects")
 
     def __str__(self):
         return self.name

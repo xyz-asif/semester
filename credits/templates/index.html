@@ -1,63 +1,86 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="{%  static 'css/style.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Caveat&family=Cormorant+Garamond:ital,wght@1,500&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{%  static 'css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arizonia&family=Caveat&family=Cormorant+Garamond:ital,wght@1,500&family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
     <title>xyz_stream</title>
-</head>
-<body>
-
-
+  </head>
+  <body>
     <section>
-        <div class="side">
-        <h3> <mark>simple</mark> </h3>
-        <p>we provide the courses in a very short and simple way to understand and make you pass
+      <div class="side">
+        <h3><mark>simple</mark></h3>
+        <p>
+          we provide the courses in a very short and simple way to understand
+          and make you pass
         </p>
-       
-    </div>
-    <div class="pic"><img src="{% static 'images/hr.png' %}" alt=""></div>
+      </div>
+      <div class="pic"><img src="{% static 'images/hr.png' %}" alt="" /></div>
 
-    <div class="pic2">
-        <img src="{% static 'images/download.jpg' %}" alt="">
-    </div>
-    <div class="side2">
-        <h3> <mark>clear backlogs</mark> </h3>
-        <p>we help you clear your backlogs by providing videos,improtant questions and pdfs</p>
-       
-    </div>
+      <div class="pic2">
+        <img src="{% static 'images/download.jpg' %}" alt="" />
+      </div>
+      <div class="side2">
+        <h3><mark>clear backlogs</mark></h3>
+        <p>
+          we help you clear your backlogs by providing videos,improtant
+          questions and pdfs
+        </p>
+      </div>
 
-    <div class="pic3">
-        <img src="{% static 'images/guy_and_interface@2x.png' %}" alt="">
-    </div>
-        <div class="side3">
-            <h3> <mark>access</mark>  </h3>
-            <p>you dont need to search for anything, we provided every essential syllabus you need </p>
-        </div>
+      <div class="pic3">
+        <img src="{% static 'images/guy_and_interface@2x.png' %}" alt="" />
+      </div>
+      <div class="side3">
+        <h3><mark>access</mark></h3>
+        <p>
+          you dont need to search for anything, we provided every essential
+          syllabus you need
+        </p>
+      </div>
     </section>
 
-  
+    <footer>
+      {% for branch in branches%}
+      <div class="one">
+        <a href="{% url 'sem:sem' branch.id %}">
+          <img src="{{branch.branch_icon.url}}" alt=""
+        /></a>
+      </div>
+      {% endfor%}
 
-        <footer>
-            <div class="one">
-                <a href="{% url 'sem' branch.id %}"> <img src="{% static 'images/1489186758-dangerelectricity-riskhigh-voltageconstruction_81814.ico' %}" alt=""></a>
-            </div>
-            <div class="two">
-                <a href="{% url 'sem' branch.id %}"> <img src="{% static 'images/gnomecpufrequencyapplet_103842.ico' %}" alt=""></a>
-            </div>
-            <div class="three">
-                <a href="{% url 'sem' branch.id %}"> <img src="{% static 'images/graphicdesign2_78420.ico' %}" alt=""></a>
-            </div>
-            <div class="four">
-                <a href="{% url 'sem' branch.id %}"> <img src="{% static 'images/1489186740-constructgearoptimizerepairsetting_81823.ico' %}" alt=""></a>
-            </div>
-            <div class="five">
-                <a href="{% url 'sem' branch.id %}"> <img src="{% static 'images/1489186755-civilengineerhelmetprotectionsafetyconstruction_81815.ico' %}" alt=""></a>
-            </div>
-        </footer>
-
-</body>
+      <!-- <div class="two">
+        <a href="">
+          <img
+            src="{% static 'images/gnomecpufrequencyapplet_103842.ico' %}"
+            alt=""
+        /></a>
+      </div>
+      <div class="three">
+        <a href="">
+          <img src="{% static 'images/graphicdesign2_78420.ico' %}" alt=""
+        /></a>
+      </div>
+      <div class="four">
+        <a href=" ">
+          <img
+            src="{% static 'images/1489186740-constructgearoptimizerepairsetting_81823.ico' %}"
+            alt=""
+        /></a>
+      </div>
+      <div class="five">
+        <a href="">
+          <img
+            src="{% static 'images/1489186755-civilengineerhelmetprotectionsafetyconstruction_81815.ico' %}"
+            alt=""
+        /></a>
+      </div> -->
+    </footer>
+  </body>
 </html>
